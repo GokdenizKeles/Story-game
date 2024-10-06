@@ -1,0 +1,304 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Inter, sans-serif";
+}
+
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+
+/* reset css end */
+
+.container {
+  max-width: 1280px;
+  padding-inline: 16px;
+  margin: 0 auto;
+  position: relative;
+}
+.winner {
+  max-width: 1280px;
+  margin: auto;
+  animation: slide-in 0.7s both;
+  background: url("../img/winner-cup.jpg") no-repeat center;
+  height: 100vh;
+  margin-block: 64px;
+  background-size: cover;
+  text-align: center;
+}
+.winner-text {
+  width: 300px;
+}
+
+.winner h1 {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 60px;
+  letter-spacing: -0.01em;
+  padding-top: 24px;
+  color: #f5cf52;
+}
+.winner h1 span {
+  color: black;
+}
+
+.flame {
+  color: rgb(255, 115, 0);
+  font-size: 80px;
+  text-shadow: 0 3px 20px red, 0 0 20px red, 0 0 10px orange,
+    4px -5px 6px yellow, -4px -10px 10px yellow, 0 -10px 30px yellow;
+  animation: 2s flame infinite alternate linear;
+}
+
+@keyframes flame {
+  0% {
+    text-shadow: 0 3px 20px red, 0 0 20px red, 0 0 10px orange, 0 0 0 yellow,
+      0 0 5px yellow, -2px -5px 5px yellow, 4px -10px 10px yellow;
+  }
+  25% {
+    text-shadow: 0 3px 20px red, 0 0 30px red, 0 0 20px orange, 0 0 5px yellow,
+      -2px -5px 5px yellow, 3px -10px 10px yellow, -4px -15px 20px yellow;
+  }
+  50% {
+    text-shadow: 0 3px 20px red, 0 0 20px red, 0 -5px 10px orange,
+      -2px -5px 5px yellow, 3px -10px 10px yellow, -4px -15px 20px yellow,
+      2px -20px 30px rgba(255, 255, 0, 0.5);
+  }
+  75% {
+    text-shadow: 0 3px 20px red, 0 0 20px red, 0 -5px 10px orange,
+      3px -5px 5px yellow, -4px -10px 10px yellow,
+      2px -20px 30px rgba(255, 255, 0, 0.5), 0px -25px 40px rgba(255, 255, 0, 0);
+  }
+  100% {
+    text-shadow: 0 3px 20px red, 0 0 20px red, 0 0 10px orange, 0 0 0 yellow,
+      0 0 5px yellow, -2px -5px 5px yellow, 4px -10px 10px yellow;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateY(-1000px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/* .winner img:hover {
+  /* transform: scale(0.5); */
+.firework-container {
+  margin-inline: auto;
+  /* max-width: 500px; */
+  margin-top: 60px;
+  position: absolute;
+}
+
+.firework {
+  position: relative;
+  z-index: 1;
+}
+
+.explosion {
+  position: absolute;
+  left: -2px;
+  bottom: 0;
+  width: 4px;
+  height: 80px;
+  transform-origin: 50% 100%;
+  /* background-color: rgba(0, 0, 0, 0.2); */
+  overflow: hidden;
+}
+
+.explosion:nth-child(1) {
+  transform: rotate(0deg) translateY(-15px);
+}
+
+.explosion:nth-child(2) {
+  transform: rotate(30deg) translateY(-15px);
+}
+
+.explosion:nth-child(3) {
+  transform: rotate(60deg) translateY(-15px);
+}
+.explosion:nth-child(4) {
+  transform: rotate(90deg) translateY(-15px);
+}
+.explosion:nth-child(5) {
+  transform: rotate(120deg) translateY(-15px);
+}
+.explosion:nth-child(6) {
+  transform: rotate(150deg) translateY(-15px);
+}
+.explosion:nth-child(7) {
+  transform: rotate(180deg) translateY(-15px);
+}
+.explosion:nth-child(8) {
+  transform: rotate(210deg) translateY(-15px);
+}
+.explosion:nth-child(9) {
+  transform: rotate(240deg) translateY(-15px);
+}
+.explosion:nth-child(10) {
+  transform: rotate(270deg) translateY(-15px);
+}
+.explosion:nth-child(11) {
+  transform: rotate(300deg) translateY(-15px);
+}
+.explosion:nth-child(12) {
+  transform: rotate(330deg) translateY(-15px);
+}
+.explosion::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background-color: #f5cf52;
+  top: 100%;
+  animation: explosion 2s ease-in-out infinite;
+}
+/* .explosion::before:nth-child(1) {
+  background-color: aqua;
+} */
+@keyframes explosion {
+  0% {
+    top: 100%;
+  }
+  33%,
+  100% {
+    top: -50%;
+  }
+}
+#firework-2s {
+  left: 50%;
+  top: 50%;
+  transform: scale(1);
+  left: 142px;
+  top: 358px;
+}
+#firework-2s .explosion:nth-child(1)::before {
+  background-color: black;
+}
+#firework-2s .explosion:nth-child(2)::before {
+  background-color: blueviolet;
+}
+
+#firework-2s .explosion:nth-child(3)::before {
+  background-color: lightcoral;
+}
+#firework-2s .explosion:nth-child(4)::before {
+  background-color: lightcyan;
+}
+#firework-2s .explosion:nth-child(5)::before {
+  background-color: lightgoldenrodyellow;
+}
+#firework-2s .explosion:nth-child(6)::before {
+  background-color: lightseagreen;
+}
+#firework-2s .explosion:nth-child(7)::before {
+  background-color: lightpink;
+}
+#firework-2s .explosion:nth-child(8)::before {
+  background-color: aquamarine;
+}
+#firework-2s .explosion:nth-child(9)::before {
+  background-color: silver;
+}
+#firework-2s .explosion:nth-child(10)::before {
+  background-color: crimson;
+}
+#firework-2s .explosion:nth-child(11)::before {
+  background-color: saddlebrown;
+}
+#firework-2s .explosion:nth-child(12)::before {
+  background-color: firebrick;
+}
+
+#firework-2s .explosion::before {
+  animation: explosion 2s ease-in-out infinite;
+}
+#firework-6s {
+  left: 1100px;
+  top: 350px;
+  transform: scale(0.7);
+}
+#firework-6s .explosion::before {
+  animation: explosion 6s ease-in-out infinite;
+  background-color: black;
+}
+#firework-4s {
+  top: 50%;
+  transform: scale(0.4);
+  left: 1100px;
+}
+#firework-4s .explosion::before {
+  animation: explosion 4s ease-in-out infinite;
+}
+
+#firework-3s {
+  left: 100px;
+  top: 35px;
+  transform: scale(0.9);
+}
+#firework-3s .explosion::before {
+  background-color: black;
+  /* left: 20px; */
+}
